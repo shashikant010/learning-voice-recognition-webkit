@@ -1,7 +1,7 @@
 let but=document.querySelector("button");
 function voice(){
     var recognition = new webkitSpeechRecognition();
-    recognition.language="en-GB";
+    recognition.lang="en-GB";
     recognition.onresult=(evt)=>{
         console.log(evt);
     }
