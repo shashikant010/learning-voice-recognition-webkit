@@ -1,5 +1,5 @@
 let but=document.querySelector("button");
-but.addEventListener("click",()=>{
+function voice(){
     var recognition = new webkitSpeechRecognition();
     recognition.lang="en-GB";
     recognition.onresult=(evt)=>{
@@ -7,4 +7,8 @@ but.addEventListener("click",()=>{
         document.getElementById("speechtotext").value = evt.results[0][0].transcript;
     }
     recognition.start();
-});
+    recognition.onend=()=>{
+        recognition.start(); 
+    }
+}
+but.addEventListener("click",voice());
